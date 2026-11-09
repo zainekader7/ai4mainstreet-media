@@ -1,0 +1,29 @@
+Order vs delivery vs invoice → the mismatches + a polite supplier email.
+
+The problem: spotting short deliveries and price changes before you pay.
+
+Exact prompt (ChatGPT):
+"""
+Check this FICTIONAL supplier delivery for my small shop. Compare what I ordered, what arrived and what the invoice charges. Use only the numbers below and show your math.
+Output a table: Item | Ordered | Received | Invoiced qty | Agreed unit price | Invoiced unit price | Invoiced total | Problem?
+Then list each mismatch with the amount in question, and write a short, polite email asking the supplier to confirm or correct — leave [Supplier name] and [My name] as blanks. Do not decide whether I should pay, and do not send anything.
+
+My order: 24 jars honey @ $4.00; 12 bags coffee @ $9.50; 6 boxes tea @ $5.25
+Delivery note: 24 honey; 10 coffee; 6 tea (2 boxes crushed)
+Invoice: honey 24 × $4.00 = $96.00; coffee 12 × $9.50 = $114.00; tea 6 × $5.75 = $34.50; total $244.50
+"""
+
+Inputs above are FICTIONAL. Don't paste private customer or personal details.
+
+Our actual test: ChatGPT caught 2 missing coffee bags (2 × $9.50 = $19.00) and the tea price change (6 × $0.50 = $3.00), confirmed the invoice adds up ($244.50), flagged the 2 crushed boxes without assuming a refund, and drafted a polite email. Watch out: its "combined" $33.50 overlaps (it said so) — not a credit total.
+
+Your check: Re-count the boxes and re-check every figure against your real paperwork before emailing. AI drafts the email; you decide what to pay.
+
+Tested Nov 9, 2026 in ChatGPT, Free plan (signed in). Nothing was sent. Results vary between runs.
+
+Onscreen proof = typeset excerpt of the saved reply, not a live screen capture. Licensed stock footage; nobody shown endorses us.
+Footage: Artem Podrez, Tima Miroshnichenko via Pexels.
+
+More tested prompts in our free newsletter — link in bio.
+
+#SmallBusinessTips #ShopOwner #ChatGPT #AIForMainStreet

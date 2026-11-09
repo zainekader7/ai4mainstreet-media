@@ -1,0 +1,33 @@
+5 messy voicemails → today's callback list (who to call first + what to have ready).
+
+The problem: five rambling voicemails — who first, and what to have ready?
+
+Exact prompt (ChatGPT):
+"""
+These are FICTIONAL voicemail transcripts for a small dog-grooming shop. Make my callback list for today.
+Rules: use only what callers said. Don't invent names, numbers, times or prices — write "not given". If a number is cut off, say so.
+Output a table: Priority (1 = call first) | Caller | Number | What they need | Deadline mentioned | What to have ready before I call.
+Put time-sensitive or worried callers first and give a one-line reason for each priority. Then list anything unclear. Do not call, text or book anyone.
+
+Voicemails:
+1. "Hi it's Marco, 555-0142. I need to move Bella's groom from Thursday — any time Friday works."
+2. "Um, hi, my dog came home with a small cut near his ear after Saturday's groom. Can someone call me back today please? It's Priya, 555-0178."
+3. "Hello, do you sell gift cards? No rush. 555-0190."
+4. "This is Joan, calling to confirm Max for tomorrow at 10. If I don't hear back I'll assume it's fine."
+5. "Hi, quick question on prices for a large doodle, call me on 555-01…" [message cuts off]
+"""
+
+Inputs above are FICTIONAL. Don't paste private customer or personal details.
+
+Our actual test: ChatGPT put Priya's injured-dog call at #1, wrote "not given" for missing names/numbers and flagged the cut-off "555-01…" instead of guessing. Quirk: it ranked Joan #2 though there's no number to call her on.
+
+Your check: Check every name and number against the actual voicemail before dialling. The injury call is yours to handle personally — AI only sorts the list.
+
+Tested Nov 9, 2026 in ChatGPT, Free plan (signed in). Results vary between runs.
+
+Onscreen proof = typeset excerpt of the saved reply, not a live screen capture. Licensed stock footage; nobody shown endorses us.
+Footage: RDNE Stock project, Ron Lach, Tima Miroshnichenko via Pexels.
+
+Free AI for Main Street prompt pack (free signup): https://aiformainstreet.beehiiv.com/subscribe
+
+#SmallBusinessAI #ChatGPT #CustomerService #AIForMainStreet #Shorts

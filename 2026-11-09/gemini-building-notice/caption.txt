@@ -1,0 +1,31 @@
+Confusing building notice → the deadlines, what to do, and what to ask.
+
+The problem: a dense building notice — what's the deadline, what do you do, what's unclear?
+
+Exact prompt (Gemini):
+"""
+Explain this FICTIONAL building notice in plain English. Use only what it says. If a date, time, amount or rule is unclear, write "unclear – ask". This is not legal advice, so don't give any.
+Output:
+1) What's happening (2 sentences)
+2) Table: Date/deadline | What I need to do | What happens if I don't (only if the notice says)
+3) Up to 5 questions to ask the building office
+4) A short, polite message I could send with those questions
+Do not send anything.
+
+Fictional notice: "NOTICE TO RESIDENTS – Maplewood Court. Annual fire-alarm and smoke-detector testing will take place on 18 November between 9:00 and 4:00. Access to all units is required. Residents who cannot be present must leave a key with the office by 5pm the day prior or sign the access form. Pets must be secured. Water to B-wing will be off for approximately 2 hours during the morning for valve replacement. Failure to provide access may result in a re-inspection fee as per your lease. – Management"
+"""
+
+Inputs above are FICTIONAL. Don't paste private customer or personal details.
+
+Our actual test: Gemini turned "5pm the day prior" into "17 November by 5:00 PM", kept both options (key or access form), and didn't invent the fee or exact water-off hours — it made them questions for the office and drafted a polite message.
+
+Your check: Check the dates against the real notice and your lease before acting, and ask the office directly about anything marked unclear. This isn't legal advice.
+
+Tested Nov 9, 2026 in Gemini Flash on a Pro-labelled account — NOT a free-plan test; no claim about free limits. Results vary between runs.
+
+Onscreen proof = typeset excerpt of the saved reply, not a live screen capture. Licensed stock footage; nobody shown endorses us.
+Footage: Kindel Media, Tima Miroshnichenko, cottonbro studio via Pexels.
+
+More tested prompts in our free newsletter — link in bio.
+
+#RenterTips #Adulting #Gemini #AIForMainStreet

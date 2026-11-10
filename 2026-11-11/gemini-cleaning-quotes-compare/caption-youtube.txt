@@ -1,0 +1,36 @@
+3 cleaning quotes, 3 price formats → compare them like-for-like.
+
+The problem: per week vs per visit vs per 4 weeks.
+
+Exact prompt (Gemini):
+"""
+Compare these three FICTIONAL cleaning quotes for my small shop like-for-like. Use only what's written. If something isn't stated, write "not given" — never guess a price. Show your math.
+
+What I need: 2 visits a week; bins and kitchen every visit; inside windows once every 4 weeks.
+
+Quote A: $180 per week, 2 visits a week, supplies included, bins + kitchen included, windows not mentioned, insured, 30 days' notice to cancel.
+Quote B: $95 per visit, 2 visits a week, supplies extra (price not stated), bins + kitchen + inside windows included, insurance not mentioned, no contract.
+Quote C: $700 per 4 weeks, 1 visit a week, supplies included, bins + kitchen included, inside windows $40 extra per clean, insured, 3-month minimum.
+
+Output:
+1) Table: Quote | Visits per 4 weeks | Cost per 4 weeks (math) | Cost per visit (math, one figure per quote) | Meets my needs? (yes / no / unclear, with reason)
+2) What's missing or unclear in each quote, and each quote's contract/notice terms exactly as written
+3) Up to 3 questions for each cleaner, specific to their quote
+
+Don't pick a winner. Do not contact anyone.
+"""
+
+Inputs above are FICTIONAL. Don't paste private customer or personal details.
+
+Our actual test (run 2): per 4 weeks A $720 ($90/visit), B $760 + supplies "not given" ($95/visit), C $740 with one window clean but only 4 visits, so it fails "2 a week". It kept each quote's terms, asked quote-specific questions, picked no winner. Run 1 missed B's "no contract" and C's 3-month minimum, so we tightened 2 lines (above).
+
+Your check: Get every answer in writing before you sign; check insurance papers yourself.
+
+Tested Nov 10, 2026 in Gemini Flash on a Pro-labelled account — NOT a free-plan test. Results vary.
+
+Onscreen proof = typeset excerpt of the saved reply, not a live screen capture. Licensed stock footage; nobody shown endorses us.
+Footage: Ron Lach, Tima Miroshnichenko, Artem Podrez, Kindel Media via Pexels.
+
+Free AI for Main Street prompt pack (free signup): https://aiformainstreet.beehiiv.com/subscribe
+
+#SmallBusinessTips #Gemini #AIForMainStreet #Shorts

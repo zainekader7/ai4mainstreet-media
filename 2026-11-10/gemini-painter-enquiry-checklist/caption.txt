@@ -1,0 +1,32 @@
+"How much?" → a site-visit checklist + questions to text back (no guessed prices).
+
+The problem: a vague enquiry ending in "how much?"
+
+Exact prompt (Gemini):
+"""
+I run a small painting business. Below is a FICTIONAL customer enquiry. Turn it into a site-visit checklist I can use before I quote.
+Rules: do NOT give any prices, hours or cost estimates. Use only facts in the message. Mark anything missing as "UNKNOWN – ask". Do not diagnose any damage. The stain's cause is UNKNOWN: never call it a leak or say it was fixed, repaired or dried out. Only ask when it appeared and whether it has changed, and list it to check in person.
+Output:
+1) Job summary (max 3 lines)
+2) Table: Item | What the customer said | What I still need to know
+3) Up to 8 short, friendly questions to text the customer
+4) Things to check in person
+Do not send, book or schedule anything.
+
+Fictional enquiry: "Hi, we need the living room and hallway painted before my mum visits mid-December. There are some cracks near the window and a brown water stain on the hallway ceiling. We'd like something lighter than the current dark green. Can you do weekends? How much would it be? – Dana"
+"""
+
+Inputs above are FICTIONAL. Don't paste private customer or personal details.
+
+Our actual test: Gemini gave no price, marked missing details (finish date, colour, trim) "UNKNOWN – ask", and didn't guess the stain's cause — it asked when it appeared and listed it to check in person. Quirk: it assumed the window is in the living room.
+
+Your check: Before texting: read every question, delete any that don’t fit, and quote only after your own site visit. The stain needs a real look (and possibly a plumber/roofer) — AI can’t see it.
+
+Tested Nov 9, 2026 in Gemini Flash on a Pro-labelled account — NOT a free-plan test. Results vary between runs.
+
+Onscreen proof = typeset excerpt of the saved reply, not a live screen capture. Licensed stock footage; nobody shown endorses us.
+Footage: shakar adalat, Tima Miroshnichenko via Pexels.
+
+More tested prompts in our free newsletter — link in bio.
+
+#PaintingBusiness #SmallBusinessAI #Gemini #AIForMainStreet

@@ -1,0 +1,29 @@
+What's in your fridge → 3 dinners for 2, with amounts, plus only what's missing.
+
+The problem: 6pm, a half-full fridge, and no plan for dinner.
+
+Exact prompt (ChatGPT):
+"""
+Here's what's in my fridge and cupboard (FICTIONAL example). Suggest 3 simple dinners for 2 people, 30 minutes or less each, using mostly these items.
+For each dinner: name, which listed items it uses WITH amounts, and steps in max 5 short lines.
+Then give ONE shopping list of only the missing items (max 6).
+Rules: count quantities. All 3 dinners together must not use more of any item than I listed (e.g. 3 chicken thighs total). Anything a recipe needs beyond what I have goes on the shopping list; if nothing is missing, say so once. Don't assume I have anything not listed except salt, pepper, oil and water. Don't judge whether any food is still safe to eat — just remind me to check dates and smell. No nutrition or health claims. Plain text only: no images, links or web sources.
+
+Fridge: 4 eggs, half a bag of spinach, 1 red pepper, small block of cheddar, 3 cooked chicken thighs (cooked 2 days ago), plain yoghurt, 1 lemon
+Cupboard: pasta, 1 tin chickpeas, 1 tin chopped tomatoes, rice, garlic, 1 onion, cumin
+"""
+
+Inputs above are FICTIONAL. Don't paste private customer or personal details.
+
+Our actual test: ChatGPT gave 3 dinners (chicken & spinach pasta, chickpea curry with rice, pepper omelette) with amounts and 5 steps, said nothing was missing, and added its own quantity check (eggs 4 of 4, chicken 2 of 3). It didn't judge the 2-day-old chicken — just said check dates and smell.
+
+Your check: Check dates and smell on everything (especially the cooked chicken) — that’s your call, not the AI’s. Skim the steps before you start cooking.
+
+Tested Nov 9, 2026 in ChatGPT, Free plan (signed in). Results vary between runs.
+
+Onscreen proof = typeset excerpt of the saved reply, not a live screen capture. Licensed stock footage; nobody shown endorses us.
+Footage: Kindel Media, cottonbro studio, Tima Miroshnichenko via Pexels.
+
+Free AI for Main Street prompt pack (free signup): https://aiformainstreet.beehiiv.com/subscribe
+
+#DinnerIdeas #UseWhatYouHave #ChatGPT #AIForMainStreet #Shorts

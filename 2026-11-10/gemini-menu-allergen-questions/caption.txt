@@ -1,0 +1,33 @@
+Plain menu lines → tastier descriptions + allergen questions to confirm (nothing guessed).
+
+The problem: a flat menu, and allergens you can't guess.
+
+Exact prompt (Gemini):
+"""
+I run a small FICTIONAL cafe. Rewrite these plain menu lines as short, appetising descriptions (max 15 words each).
+Rules: use only the ingredients listed. Never add or assume ingredients, brands or how anything is made. Keep prices exactly as written. Never write "contains", "free-from", "-free", "vegan" or "safe" anywhere.
+Output a table: Item | Price | New description | Ingredients as listed | Allergen questions to confirm.
+The allergen column is QUESTIONS ONLY, for every item, covering each listed ingredient that could be an allergen source (e.g. cheese, yoghurt or butter: dairy? eggs: egg? flour, bread or oats: gluten? pesto: nuts, dairy? stock: what type, celery, gluten?).
+Flag anything marked with "?" as unconfirmed. End with one line: check actual recipes and supplier labels.
+
+Fictional menu:
+- Pesto chicken toastie – chicken, pesto, mozzarella, sourdough – $11
+- Lentil soup – red lentils, carrot, cumin, stock – $8
+- Banana bread – banana, flour, eggs, butter, walnuts? – $4.50
+- Granola bowl – oats, yoghurt, honey, seasonal fruit – $9
+"""
+
+Inputs above are FICTIONAL. Don't paste private customer or personal details.
+
+Our actual test: Gemini kept all 4 prices, asked allergen QUESTIONS on every item (mozzarella: dairy? stock: what type, celery, gluten?) and flagged the walnuts as unconfirmed. Nothing called "safe". Check words like "toasted" match how you make it.
+
+Your check: Allergen info must come from your actual recipes and supplier labels — confirm every question before printing. AI wrote the words; you own the facts.
+
+Tested Nov 9, 2026 in Gemini Flash on a Pro-labelled account — NOT a free-plan test. Results vary.
+
+Onscreen proof = typeset excerpt of the saved reply, not a live screen capture. Licensed stock footage; nobody shown endorses us.
+Footage: cottonbro studio, Nadin Sh, Tima Miroshnichenko via Pexels.
+
+More tested prompts in our free newsletter — link in bio.
+
+#CafeOwner #RestaurantTips #Gemini #AIForMainStreet

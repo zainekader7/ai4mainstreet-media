@@ -1,0 +1,42 @@
+Shared house bills → who owes whom, with every step of the math shown.
+
+The problem: some bills split by room, some equally, one housemate away half the month — and everyone paid something different.
+
+Exact prompt (Gemini):
+"""
+Split our shared house bills for October. Everything below is FICTIONAL. Use only these numbers, round to cents, and show all your math.
+
+Bills and how we agreed to split them:
+- Rent $2,400 — by room: Priya 40%, Tom 30%, Lee 30%
+- Electricity $162 — split equally
+- Internet $75 — split equally
+- Shared groceries $186 — Lee was away half the month, so Lee pays half a share (Priya 1 share, Tom 1 share, Lee 0.5 share)
+
+Who already paid:
+- Priya paid the whole rent
+- Tom paid electricity and internet
+- Lee paid the groceries
+
+Output:
+1) Table: Person | Rent | Electricity | Internet | Groceries | Total share (math)
+2) Table: Person | Total share | Already paid | Owes (–) or is owed (+)
+3) Who pays whom, using the fewest payments
+4) A short, friendly message for our group chat with the amounts
+
+Check that the totals add up to all the bills. Do not send any message or request any payment.
+"""
+
+Inputs above are FICTIONAL. Don't paste private customer or personal details.
+
+Our actual test: Gemini split groceries by 2.5 shares ($74.40 a share, Lee $37.20), got totals of $1,113.40 / $873.40 / $836.20 = $2,823.00, and settled it in 2 payments: Tom → Priya $636.40, Lee → Priya $650.20. It ran code to check the math. Quirk: its group-chat message lists only the two payments, not each share.
+
+Your check: Check every amount against the actual bills and your bank transfers before anyone pays — and agree the split together first.
+
+Tested Nov 10, 2026 in Gemini Flash on a Pro-labelled account — NOT a free-plan test. Results vary between runs.
+
+Onscreen proof = typeset excerpt of the saved reply, not a live screen capture. Licensed stock footage; nobody shown endorses us.
+Footage: Mikhail Nilov, Artem Podrez, Kindel Media, Tima Miroshnichenko via Pexels.
+
+More tested prompts in our free newsletter — link in bio.
+
+#EverydayAI #Roommates #Gemini #AIForMainStreet

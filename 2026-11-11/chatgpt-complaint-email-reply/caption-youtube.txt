@@ -1,0 +1,35 @@
+Angry customer email → the facts, what they want, and a calm reply (no fault admitted).
+
+The problem: a cracked, late order and an upset customer.
+
+Exact prompt (ChatGPT):
+"""
+I run a small online candle shop. Help me reply to this FICTIONAL complaint. Use only what's written below. If something isn't given, write "not given".
+
+Complaint: "Order #2291 arrived on 6 Nov, two days after the date on your website. One of the three candles (Fig & Cedar) was cracked and wax leaked onto the other two boxes. I paid $54 plus $6 shipping. It was a gift and I'm really disappointed. Send a replacement before 20 Nov or I want a full refund. – Jordan"
+
+My rules: I replace items damaged in transit once the customer sends a photo. Refunds on request within 30 days. I can't promise delivery dates — the courier sets them.
+
+Output:
+1) Facts the customer states (bullet list, their words)
+2) What they want, including any deadline
+3) What I don't know yet
+4) A reply under 120 words: sorry for the experience, ask for a photo, offer what my rules allow, sign off [My name]
+
+Rules: don't admit fault for the delay or damage, don't promise a delivery date, don't invent discounts, vouchers or extra compensation. Do not send anything.
+"""
+
+Inputs above are FICTIONAL. Don't paste private customer or personal details.
+
+Our actual test: ChatGPT caught both wants (replacement before 20 Nov OR refund) and real unknowns (no photo yet; other candles or just the boxes?). Its 94-word reply asks for a photo, offers a replacement or a refund within 30 days, admits no fault and says "we can't guarantee a delivery date". Quirk: it showed a "Connect email" button (not clicked).
+
+Your check: Check the order and the courier tracking yourself, and decide replacement or refund before you hit send.
+
+Tested Nov 10, 2026 in ChatGPT, Free plan (signed in). Results vary between runs.
+
+Onscreen proof = typeset excerpt of the saved reply, not a live screen capture. Licensed stock footage; nobody shown endorses us.
+Footage: Tima Miroshnichenko, Uyohoini Solomon via Pexels.
+
+Free AI for Main Street prompt pack (free signup): https://aiformainstreet.beehiiv.com/subscribe
+
+#SmallBusinessTips #CustomerService #ChatGPT #AIForMainStreet #Shorts

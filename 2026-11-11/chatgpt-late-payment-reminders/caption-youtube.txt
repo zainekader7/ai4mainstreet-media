@@ -1,0 +1,37 @@
+Client hasn't paid? → 3 polite reminders that get firmer (no threats).
+
+The problem: an invoice 12 days overdue, and you don't want to sound rude.
+
+Exact prompt (ChatGPT):
+"""
+Write payment reminders for my small florist business. Use only the FICTIONAL invoice facts below. If something isn't given, write "not given". Show your math.
+
+Facts:
+- Invoice #1047 to Harbor Lane Events (contact: Sam), wedding flowers on 10 Oct 2026
+- Invoice total $1,860.00, of which a $500.00 deposit is already paid
+- Invoice sent 15 Oct 2026; terms: due within 14 days
+- Today is 10 Nov 2026. No reply yet.
+- My terms say nothing about late fees or interest.
+
+Output:
+1) Balance due and due date, with the math, and days overdue as of today
+2) Three emails, each under 90 words: (a) friendly, to send today; (b) firmer, for 17 Nov; (c) final, for 24 Nov, asking Sam to reply with a payment date
+Each email must include the invoice number, the balance and the due date, and use [payment link] and [My name] as blanks.
+
+Rules: no late fees, interest, legal action, collections or credit threats. Don't invent anything. Do not send anything.
+"""
+
+Inputs above are FICTIONAL. Don't paste private customer or personal details.
+
+Our actual test: ChatGPT got $1,860 − $500 = $1,360 due, 29 Oct due date, 12 days overdue, then wrote 3 emails (54–67 words) with no fees or threats; the last asks for a payment date. Quirks: one line says "Thank you for choosing my florist business!" (use your shop name); it first said "Unusual activity detected" — Retry worked.
+
+Your check: Before sending, check your bank and payment app — the money may already be on its way. Then you send each email yourself.
+
+Tested Nov 10, 2026 in ChatGPT, Free plan (signed in). Results vary between runs.
+
+Onscreen proof = typeset excerpt of the saved reply, not a live screen capture. Licensed stock footage; nobody shown endorses us.
+Footage: ANTONI SHKRABA production, Artem Podrez, Tima Miroshnichenko via Pexels.
+
+Free AI for Main Street prompt pack (free signup): https://aiformainstreet.beehiiv.com/subscribe
+
+#SmallBusinessTips #GetPaid #ChatGPT #AIForMainStreet #Shorts

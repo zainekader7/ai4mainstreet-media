@@ -1,0 +1,49 @@
+Till doesn't match the tape? → cash-up the drawer (expected, variance, what to bank).
+
+Exact prompt (ChatGPT):
+"""
+Do the end-of-day cash-up for my small cafe. Everything below is FICTIONAL. Use only these numbers, show all your math, and round to cents.
+
+Today is Thursday 12 Nov 2026.
+Opening float left in the drawer this morning: $150.00
+Cash sales from the till tape: $487.50
+Cash paid out (keep as two lines):
+- Window cleaner $23.00
+- Milk run $12.50
+
+Counted in the drawer tonight:
+- 22 × $20
+- 8 × $10
+- 10 × $5
+- 18 × $1
+- 16 × $0.25
+- 15 × $0.10
+- 8 × $0.05
+- 10 × $0.01
+
+Output:
+1) A line for each denomination: count × value = amount, then the counted total
+2) Expected in the drawer = opening float + cash sales − cash paid out (show the paid-out total)
+3) Variance = counted total − expected (say "short" if negative, "over" if positive, "even" if zero)
+4) Amount to bank tonight = counted total − opening float (leave the $150.00 float in the drawer)
+5) A short note to myself, under 40 words, if the variance is not zero: tell me to recount before I bank. Do not blame anyone or invent a reason for the difference.
+
+Rules: don't invent missing bills, card sales, tips, tax, or a "usual" variance. If a figure isn't given, write "not given". Do not send, post, or file anything.
+"""
+
+The problem: end of day, and the counted cash may not match the till tape.
+
+Inputs above are FICTIONAL. Don't paste private till or business details.
+
+Our actual test: counted $594.00, expected $150.00 + $487.50 − $35.50 = $602.00, SHORT $8.00, bank $444.00 after leaving the $150.00 float. It told us to recount; no invented reason for the short.
+
+Your check: Recount the drawer and check the till tape and paid-out slips before you bank or sign. A variance is not proof that cash was taken.
+
+Tested Nov 11, 2026 in ChatGPT, Free plan (signed in). Results vary between runs.
+
+Onscreen proof = a cropped screenshot of the saved ChatGPT reply. Licensed stock footage; nobody shown endorses us.
+Footage: Ono Kosuki, ANTONI SHKRABA production, Tima Miroshnichenko, Artem Podrez, Kindel Media.
+
+Free AI for Main Street prompt pack (free signup): https://aiformainstreet.beehiiv.com/subscribe
+
+#SmallBusinessTips #CashUp #ChatGPT #AIForMainStreet #Shorts

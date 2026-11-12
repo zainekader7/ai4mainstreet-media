@@ -1,0 +1,41 @@
+Subscriptions → monthly cost.
+
+Exact prompt (Gemini):
+"""
+List my subscriptions from this bank-style activity and turn each one into a monthly cost. Everything below is FICTIONAL. Use only these facts, show all your math, and round to cents.
+
+Today is Thursday 12 Nov 2026.
+
+Activity:
+- 02 Nov  GREENSTREAM MUSIC  $10.99
+- 03 Nov  RIVERCITY GYM  $49.00
+- 04 Nov  OFFICE MART #221  $27.43
+- 05 Nov  CLOUDBOX STORAGE  $119.88
+- 07 Nov  FRESHWEEK GROCERY  $86.12
+- 08 Nov  NEWSDAILY  $3.99
+- 09 Nov  PARKSIDE PARKING  $18.00
+- 10 Nov  PIXELPHOTO PLUS  $7.99
+- 11 Nov  NEWSDAILY  $3.99
+- 12 Nov  BREWSTREET CAFE  $6.50
+
+What I already know: Greenstream, the gym, and PixelPhoto are monthly. Cloudbox is annual (it renews on 5 Nov each year; this $119.88 is the yearly charge). NewsDaily is weekly. Office Mart, Freshweek Grocery, Parkside Parking, and Brewstreet Cafe are one-off purchases, not subscriptions.
+
+Rules for the math:
+- Monthly equivalent: monthly charge as listed; weekly charge × 52 ÷ 12; annual charge ÷ 12.
+- If a weekly subscription appears more than once in the activity, count it once in the monthly total. Do not add both NewsDaily charges together.
+- Next date to watch = the last charge date of that subscription in this list, plus one cadence period (monthly = same day next month; weekly = +7 days; annual = same day next year).
+
+Output:
+1) A table of subscriptions only: Name | Cadence | Charge seen | Monthly equivalent (math) | Next date to watch
+2) The monthly-equivalent total of subscriptions only, with the addition
+3) A short list of the one-off purchases I told you to exclude, with amounts, so I can see they are not in the total
+4) A two-sentence note that these monthly figures are estimates and I should check the actual bank/app before cancelling anything.
+
+Do not cancel, call, or email any merchant. Don't invent promo rates, taxes, or extra fees.
+"""
+
+FICTIONAL input. Test: Cloudbox $9.99/mo; NewsDaily $17.29; total $95.26. Showed 'Searching the web'; no citations; numbers match our input. Check your bank. 11 Nov 2026, Gemini Flash (Pro account)—not a free-plan test. Cropped screenshot of the reply.
+
+More prompts — link in bio.
+
+#Gemini #AIForMainStreet

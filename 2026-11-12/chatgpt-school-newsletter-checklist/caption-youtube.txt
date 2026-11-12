@@ -1,0 +1,33 @@
+Messy school newsletter → a dated family checklist.
+
+Exact prompt (ChatGPT):
+"""
+Turn this school newsletter into a family checklist. The newsletter is FICTIONAL. Use only the facts below. If something isn't given, write "not given". Today is Thursday 12 Nov 2026. I have one child, Maya, in year 3.
+
+Newsletter:
+Hi families, a few things!!
+Picture day is next Tuesday 17 Nov — kids need to wear plain navy tops (no logos). Forms must be back by Friday 13 Nov. Cash or check $18 per child, exact change if cash.
+The book fair is in the hall Mon 16 Nov and Tue 17 Nov, 8:00-8:45am and 3:00-4:00pm. Volunteers still needed Tuesday morning — reply if you can do 8:00-8:45.
+Early dismissal Wed 18 Nov at 1:15pm (normally 3:20). After-school club IS cancelled that day. Please pick up at the main gate.
+Winter concert rehearsal Thu 19 Nov 3:30-5:00 in the gym. The concert itself is Fri 4 Dec 6:30pm, arrive 6:00. White shirt, black bottoms.
+Permission slip for the science museum trip (Tue 8 Dec, leave 9:00 back 2:30) is due Mon 23 Nov, $12 cash in an envelope with your child's name. Packed lunch, no nuts.
+
+Output:
+1) A table sorted by date: Date | Event | What I need to do or bring | Money or deadline | Unclear? (write "not given" if a detail is missing, otherwise leave blank)
+2) A checklist of ONLY actions I still have to take from today onward, in deadline order, each with the last date I can do it
+3) Up to 3 short questions I could ask the school if a detail is genuinely not given. Do not invent answers.
+
+Rules: I have one child only. Don't invent a uniform shop, bus time, sibling, or payment link. Don't volunteer me or send any reply.
+"""
+
+FICTIONAL input. Don't paste a real child's details.
+
+Actual test: picture form due Fri 13 Nov; early pickup 1:15pm (club cancelled); trip slip+$12 due 23 Nov; checklist in deadline order. Book fair/volunteering optional. Note: $18 was dated 17 Nov; confirm if it goes with the form.
+
+Check the original newsletter or school app before you act or pay.
+
+Tested 11 Nov 2026 in ChatGPT, Free plan (signed in). Cropped screenshot of the reply. Pexels stock.
+
+Free AI for Main Street prompt pack (free signup): https://aiformainstreet.beehiiv.com/subscribe
+
+#EverydayAI #ChatGPT #AIForMainStreet #Shorts

@@ -1,0 +1,10 @@
+Messy handover notes → draft action board, without invented owners or deadlines.
+
+Actual fictional test: Gemini retained Sam's milk-check deadline, kept missing assignments/times unspecified, marked the bread time unconfirmed and kept the machine OFF pending manager clearance. It returned two tables (routine work and safety hold), not the requested single table. AI can organize a draft; a human still verifies every owner, deadline and safety instruction before acting. Use fictional or properly anonymized inputs, not private staff/customer details.
+
+Tested in Gemini Flash, Chat mode, on an existing Pro-labelled account. This is NOT evidence of free-plan performance or availability. No purchase, upgrade or plan switch was made for this test.
+
+Onscreen proof: selected real output cells, reformatted for readability; […] marks omitted text. Not a live screen recording. Full extracted output and partial real screenshot retained in our test evidence. Illustrative licensed stock, not the cafe, employees or a testimonial.
+
+Footage: Tima Miroshnichenko and Kindel Media via Pexels. Save the structure; check the details.
+#Gemini #SmallBusinessAI #AIForMainStreet

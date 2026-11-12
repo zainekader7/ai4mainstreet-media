@@ -1,0 +1,12 @@
+A credited deposit is not an extra fee. Check the written terms—not just the headline price.
+
+In this fictional Gemini test, Quote A was $96/visit and $192 for two visits. Quote B was $98/visit and $196 for two visits. B's $25 deposit was credited: $73 remaining for visit one, then $98 for visit two. These figures exclude unspecified extras; no guaranteed savings or recommendation is claimed.
+
+Important limitation: the full AI reply speculated that extra hourly billing could be “prorated or rounded” and inferred billing timing not explicitly stated. Those assumptions are NOT verified terms. The video flags this weakness rather than treating the entire reply as reliable. Confirm full scope, taxes, travel, overtime, cancellation and deposit terms before selecting a service. Cheaper is not automatically better.
+
+Tested in Gemini Flash, Chat mode, on an existing Pro-labelled account. NOT Claude and NOT a free-plan test. No purchase, upgrade or plan switch made. No claim about current free limits.
+
+Proof uses actual saved output cells/fragments, reformatted—not a live screen recording. Full extracted reply remains unchanged in evidence; screenshot is a partial viewport. Illustrative licensed stock, not a customer or real quote provider.
+
+Footage: Artem Podrez, Kindel Media and Tima Miroshnichenko via Pexels.
+#Gemini #EverydayAI #AIForMainStreet

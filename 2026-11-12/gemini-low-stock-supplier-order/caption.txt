@@ -1,0 +1,37 @@
+Low on stock? → turn a count into tonight's supplier order.
+
+Exact prompt (Gemini):
+"""
+Make tonight's supplier order from my bakery stock count. Everything below is FICTIONAL. Use only these figures, show your math, and do not invent prices, brands, or pack sizes.
+
+My rule for every item: Order qty = Par − On hand − Already on order. If that number is less than 0, Order qty = 0. If Par is not given, Order qty = "not given" and do not order it.
+
+Stock count:
+- Bread flour, 25 lb bag — on hand 2, par 6, already on order 0
+- Whole milk, gallon — on hand 3, par 8, already on order 2
+- Unsalted butter, 1 lb — on hand 5, par 12, already on order 0
+- Large eggs, dozen — on hand 7, par 10, already on order 0
+- Vanilla extract, 8 oz bottle — on hand 4, par 3, already on order 0
+- Paper coffee cups 12 oz, sleeve of 50 — on hand 1, par 8, already on order 4
+- Granulated sugar, 5 lb bag — on hand 1, par not given, already on order 0
+
+Output:
+1) A table with one row per item: Item | Unit | On hand | Par | Already on order | Order qty (show the math) | Notes
+2) In Notes: if Order qty is 0, say why (over par, or already covered by an open order). If Order qty is "not given", say "par not given — do not order yet"
+3) A short supplier order I can paste, listing ONLY items whose Order qty is a number greater than 0, with the quantity and unit. No prices. No items with Order qty 0 or "not given".
+4) A one-line reminder to check the shelves and any open supplier order before I send it.
+
+Rules: don't add items I didn't list. Don't change units. Don't place, email, or send the order.
+"""
+
+FICTIONAL input. Don't paste private supplier details.
+
+Actual test: milk 3 gal (not 5; 2 already on order), flour 4 bags, butter 7 lb, eggs 3 dozen, cups 3 sleeves; vanilla 0 (over par); sugar not given. Supplier list = those five only. No prices invented.
+
+Check the actual shelves and any open supplier order before you place this.
+
+Tested 11 Nov 2026, Gemini Flash on a Pro-labelled account — NOT a free-plan test. Results vary. Cropped screenshot of the reply. Pexels: Tima Miroshnichenko, Artem Podrez.
+
+More tested prompts — link in bio.
+
+#SmallBusinessTips #Inventory #Gemini #AIForMainStreet

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example demo: Bayou City Roofing office assistant | AI for Main Street</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14213D;--navy2:#1d2d52;--yellow:#FCA311;--off:#F5F3EE;--ink:#1b2333;--muted:#5b6475;--line:#e3dfd5;--green:#2e8b57;--red:#c0392b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Open Sans",system-ui,sans-serif;background:var(--off);color:var(--ink);font-size:15px;line-height:1.5}
+h1,h2,h3,.mont{font-family:Montserrat,sans-serif;font-weight:700;line-height:1.2}
+.banner{background:var(--yellow);color:var(--navy);text-align:center;font-size:13px;font-weight:700;padding:7px 12px}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 34px)}
+aside{background:var(--navy);color:#fff;padding:22px 14px;display:flex;flex-direction:column;gap:4px}
+.brand{font-family:Montserrat;font-weight:800;font-size:16px;padding:0 10px 4px}
+.brand span{color:var(--yellow)}
+.biz{font-size:12px;color:#aab4cc;padding:0 10px 18px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:10px}
+aside a{display:flex;justify-content:space-between;align-items:center;color:#cfd6e6;text-decoration:none;padding:11px 12px;border-radius:9px;font-weight:600}
+aside a:hover{background:rgba(255,255,255,.06)}
+aside a.on{background:var(--yellow);color:var(--navy)}
+aside a .ct{background:rgba(255,255,255,.15);border-radius:999px;font-size:12px;padding:1px 8px}
+aside a.on .ct{background:var(--navy);color:#fff}
+aside .foot{margin-top:auto;font-size:11px;color:#8f9ab3;padding:10px}
+main{padding:26px 30px;overflow:auto}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.top h1{font-size:26px;color:var(--navy)}
+.top p{color:var(--muted)}
+.chip{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#fff3dc;color:#8a5a00;padding:4px 9px;border-radius:6px;display:inline-block}
+.panel{background:#fff;border:1px solid var(--line);border-radius:14px}
+.view{display:none}.view.on{display:block}
+/* inbox */
+.inbox{display:grid;grid-template-columns:320px 1fr;gap:18px}
+.leadlist .item{padding:14px 16px;border-bottom:1px solid var(--line);cursor:pointer}
+.leadlist .item:last-child{border-bottom:none}
+.leadlist .item.sel{background:#fff8ea;border-left:4px solid var(--yellow)}
+.leadlist .item b{display:block}
+.leadlist .meta{font-size:12px;color:var(--muted)}
+.src{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:#eef1f6;color:var(--navy);margin-right:6px}
+.detail{padding:22px}
+.bubble{background:#eef1f6;border-radius:14px;padding:14px 16px;margin:10px 0 18px}
+.draft{border:2px dashed var(--yellow);background:#fffaf0;border-radius:14px;padding:16px}
+.draft textarea{width:100%;border:none;background:transparent;font:inherit;resize:vertical;min-height:120px;overflow:hidden;color:var(--ink);outline:none}
+.draft textarea[readonly]{cursor:default}
+.draftlabel{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:13px;color:var(--muted);font-weight:600}
+.btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+button{font-family:Montserrat;font-weight:700;border:none;border-radius:9px;padding:11px 18px;cursor:pointer;font-size:14px}
+.ok{background:var(--green);color:#fff}.ed{background:#eef1f6;color:var(--navy)}.sk{background:transparent;color:var(--muted)}
+.status{margin-top:12px;font-size:13px;padding:10px 12px;border-radius:9px;background:#e4f4ea;color:#1f6b40;display:none}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:6px}
+.facts div{background:var(--off);border-radius:9px;padding:8px 10px;font-size:13px}
+.facts small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+/* tables */
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:12px 14px;border-bottom:1px solid var(--line);background:#faf9f6}
+td{padding:12px 14px;border-bottom:1px solid #f0ede6;vertical-align:top}
+tr:last-child td{border-bottom:none}
+.pill{font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;display:inline-block}
+.r{background:#fde8e6;color:var(--red)}.y{background:#fff3dc;color:#8a5a00}.g{background:#e4f4ea;color:#1f6b40}.b{background:#e8edf7;color:var(--navy)}.x{background:#eee;color:#666}
+.sec{font-family:Montserrat;font-weight:700;color:var(--navy);font-size:15px;margin:20px 0 10px}
+#fuwrap table{table-layout:fixed}#fuwrap th:nth-child(1){width:46%}#fuwrap th:nth-child(2){width:17%}#fuwrap th:nth-child(3){width:11%}#fuwrap th:nth-child(4){width:14%}
+#jobtable td:nth-child(3),#jobtable td:nth-child(4),#jobtable td:nth-child(1){white-space:nowrap}
+.fu-msg{display:none;margin-top:8px;background:#fffaf0;border:1px dashed var(--yellow);border-radius:10px;padding:10px 12px;font-size:14px}
+.link{background:none;padding:0;color:var(--navy);text-decoration:underline;font-size:13px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.tile small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.tile b{font-family:Montserrat;font-size:26px;color:var(--navy)}
+.tile.warn b{color:var(--red)}
+.tile em{display:block;font-style:normal;font-size:12px;color:var(--muted)}
+.cols{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+.bars{padding:16px}
+.bar{margin-bottom:12px}
+.bar .lbl{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+.bar .trk{background:#eef1f6;border-radius:6px;height:12px}
+.bar .fil{background:var(--navy);height:12px;border-radius:6px}
+.bar .fil.yl{background:var(--yellow)}
+/* summary */
+.email{max-width:720px;margin:0 auto}
+.email .hd{padding:18px 22px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+.email .hd b{color:var(--ink)}
+.email .bd{padding:22px}
+.email h2{color:var(--navy);font-size:22px;margin-bottom:6px}
+.sumgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.sumgrid div{background:var(--off);border-radius:10px;padding:12px}
+.sumgrid small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase}
+.sumgrid b{font-family:Montserrat;font-size:22px;color:var(--navy)}
+.email ul{margin:6px 0 14px 20px}
+.email li{margin-bottom:4px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 18px;border-radius:10px;font-size:14px;display:none;max-width:90vw;z-index:20;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.mob-nav{display:none}
+@media (max-width:860px){
+ .app{grid-template-columns:1fr}
+ aside{display:none}
+ .mob-nav{display:flex;overflow-x:auto;gap:6px;background:var(--navy);padding:10px}
+ .mob-nav a{color:#cfd6e6;text-decoration:none;white-space:nowrap;padding:8px 12px;border-radius:8px;font-weight:600;font-size:14px}
+ .mob-nav a.on{background:var(--yellow);color:var(--navy)}
+ main{padding:18px 14px}
+ .inbox,.cols{grid-template-columns:1fr}
+ .tiles{grid-template-columns:1fr 1fr}
+ .facts,.sumgrid{grid-template-columns:1fr 1fr}
+ .tbl-wrap{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+<div class="banner">EXAMPLE DEMO · "Bayou City Roofing" is a fictional business, and every name, number and message here is made up. Message drafts are sample copy written by AI for Main Street, not live AI output. Nothing in this demo sends anything.</div>
+<nav class="mob-nav" id="mnav"></nav>
+<div class="app">
+<aside id="nav">
+  <div class="brand">AI for <span>Main Street</span></div>
+  <div class="biz">Office Assistant for<br><b style="color:#fff">Example: Bayou City Roofing</b><br>Demo date: Mon, Nov 16, 2026</div>
+  <div style="padding:16px 18px 8px;font-size:13px;line-height:1.5">
+    <a href="../index.html" style="color:#FCA311;text-decoration:none;font-weight:700">← Back to the offer</a><br>
+    <a href="mailto:zainekader7@mail.grokbot.com?subject=AI%20Office%20Assistant%20%E2%80%94%2015-minute%20demo&body=Hi%2C%0A%0AI%27d%20like%20to%20book%20a%20free%2015-minute%20demo%20of%20the%20AI%20Office%20Assistant.%0A%0AName%3A%0ABusiness%20name%3A%0ATrade%20(roofing%2C%20painting%2C%20cleaning%2C%20handyman%2C%20landscaping%2C%20other)%3A%0ACity%20%2F%20area%3A%0A%0AThanks." style="color:#cfd6e6;text-decoration:none">Get started — book a demo</a>
+  </div>
+</aside>
+<main>
+
+<!-- INBOX -->
+<section class="view" id="v-inbox">
+  <div class="top"><div><h1>New leads</h1><p>New enquiries from your web form, email and Facebook, each with a reply drafted and waiting for your OK.</p></div><span class="chip">Example data</span></div>
+  <div class="inbox">
+    <div class="panel leadlist" id="leadlist"></div>
+    <div class="panel detail" id="leaddetail"></div>
+  </div>
+</section>
+
+<!-- FOLLOW-UPS -->
+<section class="view" id="v-followups">
+  <div class="top"><div><h1>Follow-up queue</h1><p>Overdue first, then today, then the rest of this week. Tap "See message" for a ready-made follow-up.</p></div><span class="chip">Example data</span></div>
+  <div id="fuwrap"></div>
+</section>
+
+<!-- JOBS & MONEY -->
+<section class="view" id="v-jobs">
+  <div class="top"><div><h1>Jobs &amp; money owed</h1><p>Every lead, quote, job and invoice in one place. This view comes from the Home Services Lead &amp; Job CRM sheet.</p></div><span class="chip">Example data</span></div>
+  <div class="tiles" id="tiles"></div>
+  <div class="cols">
+    <div class="panel tbl-wrap"><table id="jobtable"></table></div>
+    <div>
+      <div class="panel bars" id="owedpanel"></div>
+      <div class="panel bars" id="stagepanel" style="margin-top:18px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="view" id="v-reviews">
+  <div class="top"><div><h1>Review requests</h1><p>Jobs that are finished and paid get a short thank-you with your Google review link, ready for you to send.</p></div><span class="chip">Example data</span></div>
+  <div class="inbox">
+    <div class="panel leadlist" id="revlist"></div>
+    <div class="panel detail" id="revdetail"></div>
+  </div>
+</section>
+
+<!-- WEEKLY SUMMARY -->
+<section class="view" id="v-summary">
+  <div class="top"><div><h1>Weekly summary</h1><p>A one-screen recap every Monday, worked out from your tracker.</p></div><span class="chip">Example data</span></div>
+  <div class="panel email" id="summary"></div>
+</section>
+
+</main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+// ---------- EXAMPLE DATA (fictional) ----------
+const TODAY = new Date(2026,10,16); // Mon Nov 16 2026 (demo date)
+const WEEK_START = new Date(2026,10,9), WEEK_END = new Date(2026,10,15);
+const BIZ = "Example: Bayou City Roofing", OWNER = "Ray";
+const d = s => { const [m,dd]=s.split('/').map(Number); return new Date(2026,m-1,dd); };
+const money = n => '$'+n.toLocaleString('en-US');
+const fmt = dt => dt.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+const days = (a,b) => Math.round((a-b)/86400000);
+
+const jobs = [
+ {c:"Dana Whitfield",src:"Web form",svc:"Leak repair",lead:"11/15",stage:"New lead"},
+ {c:"Marcus Lee",src:"Email",svc:"Roof inspection",lead:"11/16",stage:"New lead"},
+ {c:"Rosa Delgado",src:"Facebook",svc:"Gutter replacement",lead:"11/15",stage:"New lead"},
+ {c:"Minh Nguyen",src:"Web form",svc:"Roof replacement",lead:"11/5",stage:"Quoted",quote:14800,fu:"11/13",quoted:"11/6"},
+ {c:"Kayla Brooks",src:"Facebook",svc:"Storm damage repair",lead:"11/9",stage:"Quoted",quote:1950,fu:"11/16",quoted:"11/10"},
+ {c:"Tom Alvarez",src:"Referral",svc:"Shingle repair",lead:"11/10",stage:"Quoted",quote:850,fu:"11/16",quoted:"11/11"},
+ {c:"Grace Kim",src:"Google",svc:"Skylight reseal",lead:"11/11",stage:"Quoted",quote:1250,fu:"11/18",quoted:"11/12"},
+ {c:"Jorge Ortiz",src:"Web form",svc:"Flat roof repair",lead:"10/29",stage:"Won",quote:2150,won:"10/31",job:"11/3",inv:2150,invd:"11/4"},
+ {c:"Priya Shah",src:"Referral",svc:"Gutter repair",lead:"11/9",stage:"Won",quote:640,won:"11/10",job:"11/12",inv:640,invd:"11/12",paid:"11/13"},
+ {c:"Ben Carter",src:"Facebook",svc:"Roof replacement",lead:"11/2",stage:"Won",quote:11900,won:"11/10",job:"11/20"},
+ {c:"Linda Park",src:"Google",svc:"Leak repair",lead:"11/10",stage:"Won",quote:720,won:"11/10",job:"11/11",inv:720,invd:"11/11",paid:"11/11"},
+ {c:"Sam Hollis",src:"Web form",svc:"Vent boot repair",lead:"11/11",stage:"Won",quote:390,won:"11/12",job:"11/13",inv:390,invd:"11/13"},
+ {c:"Erin Walsh",src:"Email",svc:"Roof replacement",lead:"11/3",stage:"Lost",quote:13200,quoted:"11/5",lost:"11/9"},
+ {c:"Andre Moore",src:"Facebook",svc:"Chimney flashing",lead:"11/6",stage:"Won",quote:1100,won:"11/7",job:"11/10",inv:1100,invd:"11/10",paid:"11/14"},
+ {c:"Chris Dunn",src:"Referral",svc:"Roof replacement",lead:"10/30",stage:"Won",quote:5300,won:"11/2",job:"11/9",inv:5300,invd:"11/9"}
+];
+jobs.forEach(j=>{if(!j.quoted&&j.won)j.quoted=j.won;});
+jobs.forEach(j=>{["lead","fu","quoted","won","job","invd","paid","lost"].forEach(k=>{if(j[k]) j[k+"D"]=d(j[k]);}); j.c="Example: "+j.c;});
+const first = j => j.c.replace("Example: ","").split(" ")[0];
+
+// ---------- SAMPLE COPY (written by AI for Main Street, not live AI output) ----------
+const leadsIn = {
+ "Example: Dana Whitfield":{time:"Sun 7:42 PM",phone:"(555) 010-2231",addr:"Example address, Heights",msg:"Hi, we've got a leak over the back bedroom after last night's storm. Water is coming through the ceiling near the light. Can someone come look this week?",
+  reply:`Hi Dana, thanks for reaching out, and I'm sorry about the leak. We can come take a look Thursday morning (8–10 AM) or Friday afternoon (1–3 PM). Which works better for you?\n\nUntil then, keep a bucket under the drip and switch off that light at the breaker, just to be safe. There's no charge for the inspection.\n\nRay\n${BIZ}`},
+ "Example: Marcus Lee":{time:"Mon 6:58 AM",phone:"(555) 010-4410",addr:"Example address, Katy",msg:"We're buying a house and the inspector flagged the roof as 'near end of life'. Can you do an inspection and give us a second opinion before we close on the 30th?",
+  reply:`Hi Marcus, congratulations on the new house! Yes, we can inspect it before the 30th. We have openings this Wednesday or Friday morning. We'll send you photos and a short written report you can share with your agent.\n\nCould you reply with the address and which day suits you?\n\nRay\n${BIZ}`},
+ "Example: Rosa Delgado":{time:"Sun 3:15 PM",phone:"Facebook Messenger",addr:"Example address, Pearland",msg:"How much to replace gutters on a one-story house? Ours are sagging and pulling away from the roof.",
+  reply:`Hi Rosa, thanks for the message! Gutter prices depend on the length and the type of gutter, so we'd want to measure first. It's quick and free. We're in Pearland on Tuesday and Thursday this week. Would either day work for a 15-minute visit?\n\nRay\n${BIZ}`}
+};
+const fuMsg = j => j.stage==="Quoted"
+ ? `Hi ${first(j)}, it's Ray from ${BIZ}. I'm just checking in on the ${j.svc.toLowerCase()} quote I sent on ${fmt(j.quotedD)} (${money(j.quote)}). Do you have any questions I can answer? Happy to walk through it on a quick call.`
+ : `Hi ${first(j)}, it's Ray from ${BIZ}. Thanks again for having us out for the ${j.svc.toLowerCase()}. This is a friendly reminder that invoice ${money(j.inv)} from ${fmt(j.invdD)} is still open. You can pay by card, check or Zelle. Just reply if anything on it looks off.`;
+const revMsg = j => `Hi ${first(j)}, thanks again for choosing ${BIZ} for your ${j.svc.toLowerCase()}! If you're happy with the work, would you mind leaving us a quick Google review? It really helps a small local business like ours.\n\n[your Google review link]\n\nThank you!\nRay`;
+
+// ---------- NAV ----------
+const views=[["inbox","📥 New leads"],["followups","🔔 Follow-ups"],["jobs","📋 Jobs & money"],["reviews","⭐ Reviews"],["summary","📊 Weekly summary"]];
+const nav=document.getElementById('nav'), mnav=document.getElementById('mnav');
+const counts={};
+function buildNav(){
+  nav.querySelectorAll('a').forEach(a=>a.remove()); mnav.innerHTML="";
+  const foot=nav.querySelector('.foot'); 
+  views.forEach(([id,l])=>{
+    const a=document.createElement('a'); a.href="#"+id; a.dataset.v=id;
+    a.innerHTML=`<span>${l}</span>`+(counts[id]?`<span class="ct">${counts[id]}</span>`:""); 
+    foot?nav.insertBefore(a,foot):nav.appendChild(a);
+    const m=document.createElement('a'); m.href="#"+id; m.dataset.v=id; m.textContent=l; mnav.appendChild(m);
+  });
+  if(!foot){const f=document.createElement('div');f.className='foot';f.textContent='Demo only. In real use, everything lives in your own Google Sheet, email and Facebook inbox.';nav.appendChild(f);}
+}
+function fit(){document.querySelectorAll('textarea').forEach(t=>{t.style.height='auto';t.style.height=(t.scrollHeight+4)+'px';});}
+function show(){
+  const v=(location.hash||"#inbox").slice(1);
+  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id==="v-"+v));
+  document.querySelectorAll('[data-v]').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
+  window.scrollTo(0,0); fit();
+}
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.style.display='block';clearTimeout(e._t);e._t=setTimeout(()=>e.style.display='none',4200);}
+
+// ---------- INBOX ----------
+const newLeads=jobs.filter(j=>j.stage==="New lead");
+let selLead=0;
+function renderInbox(){
+  counts.inbox=newLeads.filter(j=>!j.done).length;
+  document.getElementById('leadlist').innerHTML=newLeads.map((j,i)=>`<div class="item ${i===selLead?'sel':''}" onclick="selLead=${i};renderInbox()">
+   <b>${j.c}</b><div class="meta"><span class="src">${j.src}</span>${leadsIn[j.c].time} · ${j.svc}</div>
+   <div class="meta" style="margin-top:4px">${j.done?'<span class="pill g">'+j.done+'</span>':'<span class="pill y">Draft ready</span>'}</div></div>`).join("");
+  const j=newLeads[selLead], L=leadsIn[j.c];
+  document.getElementById('leaddetail').innerHTML=`
+   <h2 class="mont" style="color:var(--navy);font-size:20px">${j.c}</h2>
+   <div class="facts" style="margin-top:12px"><div><small>Came in by</small>${j.src}</div><div><small>Service</small>${j.svc}</div><div><small>Contact</small>${L.phone}</div></div>
+   <div class="bubble"><div class="meta" style="font-size:12px;color:var(--muted);margin-bottom:4px">Their message · ${L.time}</div>${L.msg}</div>
+   <div class="draft"><div class="draftlabel"><span>✍️ Drafted reply, waiting for your OK</span><span class="chip">Sample copy</span></div>
+   <textarea id="replybox" readonly>${L.reply}</textarea></div>
+   <div class="btns"><button class="ok" onclick="act('Approved')">✓ Approve &amp; send</button><button class="ed" onclick="edit()">✎ Edit</button><button class="sk" onclick="act('Skipped')">Skip</button></div>
+   <div class="status" id="st"></div>
+   <p style="font-size:12px;color:var(--muted);margin-top:12px">Approved leads are added to the tracker as "New lead", with a follow-up date 2 days out.</p>`;
+  buildNav(); show();
+}
+function edit(){const t=document.getElementById('replybox');t.readOnly=false;t.focus();t.style.background='#fff';toast('Edit the draft, then tap Approve.');}
+function act(what){
+  const j=newLeads[selLead]; j.done=what==="Approved"?"Approved":"Skipped";
+  renderInbox();
+  const st=document.getElementById('st'); st.style.display='block';
+  st.textContent= what==="Approved" ? "Demo only: nothing was sent. In real use, you'd send this from your own email or Facebook inbox, and the lead would go into your tracker." : "Skipped. The lead stays in your tracker so it isn't lost.";
+}
+
+// ---------- FOLLOW-UPS ----------
+function renderFU(){
+  const items=[];
+  jobs.filter(j=>j.stage==="Quoted").forEach(j=>items.push({j,type:"Quote follow-up",due:j.fuD}));
+  jobs.filter(j=>j.inv && !j.paid).forEach(j=>{const due=new Date(j.invdD);due.setDate(due.getDate()+7);items.push({j,type:"Payment reminder",due});});
+  items.sort((a,b)=>a.due-b.due);
+  const grp={"Overdue":[],"Today":[],"Later this week":[]};
+  items.forEach(it=>{const dd=days(it.due,TODAY); if(dd<0)grp["Overdue"].push(it); else if(dd===0)grp["Today"].push(it); else if(dd<=6)grp["Later this week"].push(it);});
+  counts.followups=grp["Overdue"].length+grp["Today"].length;
+  let h="", n=0;
+  for(const [g,arr] of Object.entries(grp)){ if(!arr.length)continue;
+   h+=`<div class="sec">${g} (${arr.length})</div><div class="panel tbl-wrap"><table><tr><th>Customer</th><th>Type</th><th>Amount</th><th>Due</th><th></th></tr>`;
+   arr.forEach(it=>{const dd=days(it.due,TODAY), id="fu"+(n++);
+    const badge=dd<0?`<span class="pill r">${-dd} day${dd===-1?'':'s'} overdue</span>`:dd===0?`<span class="pill y">Today</span>`:`<span class="pill b">${fmt(it.due)}</span>`;
+    h+=`<tr><td><b>${it.j.c}</b><br><span style="font-size:13px;color:var(--muted)">${it.j.svc}</span><div class="fu-msg" id="${id}"><div class="draftlabel"><span>Ready-made message</span><span class="chip">Sample copy</span></div>${fuMsg(it.j)}<div class="btns"><button class="ok" onclick="fuDone('${id}')">✓ Approve &amp; mark sent</button></div></div></td>
+     <td>${it.type==="Quote follow-up"?'<span class="pill b">Quote follow-up</span>':'<span class="pill r">Payment reminder</span>'}</td>
+     <td>${money(it.j.inv&&!it.j.paid?it.j.inv:it.j.quote)}</td><td>${badge}</td>
+     <td><button class="link" onclick="tog('${id}')">See message</button></td></tr>`;});
+   h+=`</table></div>`;}
+  document.getElementById('fuwrap').innerHTML=h;
+}
+function tog(id){const e=document.getElementById(id);e.style.display=e.style.display==='block'?'none':'block';}
+function fuDone(id){document.getElementById(id).innerHTML='<span class="pill g">Marked done</span> <span style="font-size:13px;color:var(--muted)">Demo only: nothing was sent. In real use, the next follow-up date moves forward in your tracker.</span>';}
+
+// ---------- JOBS & MONEY ----------
+function renderJobs(){
+  const quoted=jobs.filter(j=>j.stage==="Quoted"), won=jobs.filter(j=>j.stage==="Won"), lost=jobs.filter(j=>j.stage==="Lost");
+  const owed=jobs.filter(j=>j.inv&&!j.paid), owedAmt=owed.reduce((s,j)=>s+j.inv,0);
+  const openAmt=quoted.reduce((s,j)=>s+j.quote,0);
+  const winRate=Math.round(won.length/(won.length+lost.length+quoted.length)*100);
+  const ahead=won.filter(j=>j.jobD>TODAY);
+  const collected=jobs.filter(j=>j.paid).reduce((s,j)=>s+j.inv,0);
+  window.STATS={owedAmt,openAmt,winRate,quoted:quoted.length,owed:owed.length};
+  document.getElementById('tiles').innerHTML=`
+   <div class="tile warn"><small>Money owed to you</small><b>${money(owedAmt)}</b><em>${owed.length} unpaid invoices</em></div>
+   <div class="tile"><small>Open quotes</small><b>${money(openAmt)}</b><em>${quoted.length} waiting on a yes</em></div>
+   <div class="tile"><small>Win rate</small><b>${winRate}%</b><em>won ÷ quoted (incl. open)</em></div>
+   <div class="tile"><small>Jobs booked ahead</small><b>${ahead.length}</b><em>${ahead.map(j=>first(j)+' · '+fmt(j.jobD)).join(', ')}</em></div>`;
+  const status=j=>{ if(j.stage==="New lead")return'<span class="pill x">New lead</span>';
+   if(j.stage==="Quoted")return'<span class="pill b">Quoted</span>'; if(j.stage==="Lost")return'<span class="pill x">Lost</span>';
+   if(j.paid)return'<span class="pill g">Paid</span>'; if(j.inv)return`<span class="pill r">Unpaid ${days(TODAY,j.invdD)}d</span>`;
+   return'<span class="pill y">Booked '+fmt(j.jobD)+'</span>';};
+  const order={"Won":0,"Quoted":1,"New lead":2,"Lost":3};
+  const rows=[...jobs].sort((a,b)=>order[a.stage]-order[b.stage]||(b.inv&&!b.paid?1:0)-(a.inv&&!a.paid?1:0));
+  document.getElementById('jobtable').innerHTML=`<tr><th>Customer</th><th>Service</th><th>Source</th><th>Quote / invoice</th><th>Status</th></tr>`+
+   rows.map(j=>`<tr><td><b>${j.c}</b></td><td>${j.svc}</td><td>${j.src}</td><td>${j.inv?money(j.inv):j.quote?money(j.quote):'–'}</td><td>${status(j)}</td></tr>`).join("");
+  const mx=Math.max(...owed.map(j=>j.inv));
+  document.getElementById('owedpanel').innerHTML=`<div class="sec" style="margin-top:0">Who owes you</div>`+owed.sort((a,b)=>b.inv-a.inv).map(j=>`<div class="bar"><div class="lbl"><span>${j.c}</span><b>${money(j.inv)}</b></div><div class="trk"><div class="fil yl" style="width:${j.inv/mx*100}%"></div></div><div style="font-size:12px;color:var(--muted)">Invoiced ${fmt(j.invdD)} · ${days(TODAY,j.invdD)} days ago</div></div>`).join("")+
+   `<div class="btns"><button class="ed" onclick="location.hash='followups'">Payment reminders →</button></div>`;
+  const stages=[["New lead",jobs.filter(j=>j.stage==="New lead").length],["Quoted",quoted.length],["Won",won.length],["Lost",lost.length]], sm=Math.max(...stages.map(s=>s[1]));
+  document.getElementById('stagepanel').innerHTML=`<div class="sec" style="margin-top:0">Pipeline by stage</div>`+stages.map(([s,n])=>`<div class="bar"><div class="lbl"><span>${s}</span><b>${n}</b></div><div class="trk"><div class="fil" style="width:${n/sm*100}%"></div></div></div>`).join("");
+}
+
+// ---------- REVIEWS ----------
+let selRev=0;
+function renderReviews(){
+  const done=jobs.filter(j=>j.paid).sort((a,b)=>b.paidD-a.paidD);
+  counts.reviews=done.filter(j=>!j.revDone).length;
+  document.getElementById('revlist').innerHTML=done.map((j,i)=>`<div class="item ${i===selRev?'sel':''}" onclick="selRev=${i};renderReviews()"><b>${j.c}</b><div class="meta">${j.svc} · paid ${fmt(j.paidD)}</div><div class="meta" style="margin-top:4px">${j.revDone?'<span class="pill g">Approved</span>':'<span class="pill y">Request ready</span>'}</div></div>`).join("");
+  const j=done[selRev];
+  document.getElementById('revdetail').innerHTML=`<h2 class="mont" style="color:var(--navy);font-size:20px">${j.c}</h2>
+   <div class="facts" style="margin-top:12px"><div><small>Job</small>${j.svc}</div><div><small>Finished</small>${fmt(j.jobD)}</div><div><small>Paid</small>${money(j.inv)} on ${fmt(j.paidD)}</div></div>
+   <div class="draft" style="margin-top:16px"><div class="draftlabel"><span>⭐ Review request, waiting for your OK</span><span class="chip">Sample copy</span></div><textarea readonly>${revMsg(j)}</textarea></div>
+   <div class="btns"><button class="ok" onclick="revOk()">✓ Approve &amp; send</button><button class="sk" onclick="toast('Skipped. Not every customer needs a review request.')">Skip</button></div>
+   <div class="status" id="rst"></div>
+   <p style="font-size:12px;color:var(--muted);margin-top:12px">Only sent once per customer, after the job is marked paid.</p>`;
+  buildNav(); show();
+}
+function revOk(){const done=jobs.filter(j=>j.paid).sort((a,b)=>b.paidD-a.paidD);done[selRev].revDone=true;renderReviews();const s=document.getElementById('rst');s.style.display='block';s.textContent='Demo only: nothing was sent. In real use, you send it by text or email from your own phone.';}
+
+// ---------- WEEKLY SUMMARY ----------
+function renderSummary(){
+  const inWk=dt=>dt&&dt>=WEEK_START&&dt<=WEEK_END;
+  const newL=jobs.filter(j=>inWk(j.leadD)), wonW=jobs.filter(j=>inWk(j.wonD)), lostW=jobs.filter(j=>inWk(j.lostD));
+  const quotesW=jobs.filter(j=>inWk(j.quotedD));
+  const paidW=jobs.filter(j=>inWk(j.paidD)), paidAmt=paidW.reduce((s,j)=>s+j.inv,0);
+  const doneW=jobs.filter(j=>inWk(j.jobD));
+  const owed=jobs.filter(j=>j.inv&&!j.paid).sort((a,b)=>a.invdD-b.invdD);
+  const S=window.STATS;
+  const srcs={}; newL.forEach(j=>srcs[j.src]=(srcs[j.src]||0)+1);
+  const top=Object.entries(srcs).sort((a,b)=>b[1]-a[1]);
+  document.getElementById('summary').innerHTML=`
+   <div class="hd"><b>To:</b> Ray (owner) · <b>Subject:</b> Your week at ${BIZ}: ${fmt(WEEK_START)}–${fmt(WEEK_END)} <span class="chip" style="float:right">Example</span></div>
+   <div class="bd">
+    <h2>Good morning, Ray 👋</h2><p style="color:var(--muted)">Here's last week in two minutes. Every number is worked out from your tracker.</p>
+    <div class="sumgrid">
+     <div><small>New leads</small><b>${newL.length}</b></div>
+     <div><small>Quotes sent</small><b>${quotesW.length}</b></div>
+     <div><small>Jobs won</small><b>${wonW.length}</b></div>
+     <div><small>Jobs finished</small><b>${doneW.length}</b></div>
+     <div><small>Money collected</small><b>${money(paidAmt)}</b></div>
+     <div><small>Still owed</small><b style="color:var(--red)">${money(S.owedAmt)}</b></div>
+    </div>
+    <div class="sec">💸 Chase these payments</div>
+    <ul>${owed.map(j=>`<li><b>${j.c}</b>: ${money(j.inv)}, invoiced ${fmt(j.invdD)} (${days(TODAY,j.invdD)} days ago)</li>`).join("")}</ul>
+    <div class="sec">🔔 Quotes waiting on a yes (${money(S.openAmt)})</div>
+    <ul>${jobs.filter(j=>j.stage==="Quoted").map(j=>`<li><b>${j.c}</b>: ${j.svc}, ${money(j.quote)}, follow up ${days(j.fuD,TODAY)<0?'<span style="color:var(--red)">overdue since '+fmt(j.fuD)+'</span>':fmt(j.fuD)}</li>`).join("")}</ul>
+    <div class="sec">📅 Jobs coming up this week</div>
+    <ul>${jobs.filter(j=>j.stage==="Won"&&j.jobD>TODAY).map(j=>`<li><b>${j.c}</b>: ${j.svc} on ${fmt(j.jobD)} (${money(j.quote)})</li>`).join("")}</ul>
+    <div class="sec">📈 Where new leads came from</div>
+    <p>${top.map(([s,n])=>`${s}: ${n}`).join(" · ")}</p>
+    <p style="margin-top:14px;font-size:13px;color:var(--muted)">Lost this week: ${lostW.map(j=>j.c+' ('+j.svc.toLowerCase()+', '+money(j.quote)+')').join(', ')||'none'}. New leads still waiting for a reply are on the New leads screen.</p>
+   </div>`;
+}
+
+renderJobs(); renderFU(); renderSummary(); renderReviews(); renderInbox();
+window.addEventListener('hashchange',show);
+</script>
+</body>
+</html>
